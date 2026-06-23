@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="he"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "primary": "#ffb693",
+                "on-secondary": "#303030",
+                "secondary-fixed-dim": "#c8c6c5",
+                "surface-tint": "#ffb693",
+                "on-primary-container": "#572000",
+                "on-tertiary-fixed": "#1b1c1c",
+                "tertiary-container": "#9a9999",
+                "surface-container": "#201f1f",
+                "secondary": "#c8c6c5",
+                "primary-fixed": "#ffdbcc",
+                "inverse-surface": "#e5e2e1",
+                "outline-variant": "#5a4136",
+                "surface-dim": "#131313",
+                "primary-fixed-dim": "#ffb693",
+                "primary-container": "#ff6b00",
+                "inverse-on-surface": "#313030",
+                "on-primary": "#561f00",
+                "error": "#ffb4ab",
+                "secondary-fixed": "#e5e2e1",
+                "surface-container-highest": "#353534",
+                "on-surface": "#e5e2e1",
+                "on-secondary-fixed-variant": "#474746",
+                "on-primary-fixed-variant": "#7a3000",
+                "inverse-primary": "#a04100",
+                "surface-container-high": "#2a2a2a",
+                "error-container": "#93000a",
+                "outline": "#a98a7d",
+                "on-tertiary-fixed-variant": "#474747",
+                "surface-variant": "#353534",
+                "on-tertiary": "#303030",
+                "on-secondary-fixed": "#1b1b1c",
+                "on-background": "#e5e2e1",
+                "surface-container-lowest": "#0e0e0e",
+                "secondary-container": "#474746",
+                "on-tertiary-container": "#313131",
+                "tertiary-fixed-dim": "#c8c6c6",
+                "background": "#131313",
+                "surface": "#131313",
+                "surface-container-low": "#1c1b1b",
+                "tertiary-fixed": "#e4e2e1",
+                "surface-bright": "#393939",
+                "on-primary-fixed": "#351000",
+                "on-error": "#690005",
+                "tertiary": "#c8c6c6",
+                "on-surface-variant": "#e2bfb0",
+                "on-secondary-container": "#b7b5b4",
+                "on-error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "spacing": {
+                "sm": "12px",
+                "margin-tablet": "32px",
+                "xs": "8px",
+                "lg": "32px",
+                "gutter": "16px",
+                "md": "20px",
+                "xl": "48px",
+                "margin-mobile": "16px",
+                "base": "4px"
+            },
+            "fontFamily": {
+                "headline-md": ["Montserrat"],
+                "body-md": ["Inter"],
+                "body-lg": ["Inter"],
+                "label-lg": ["Inter"],
+                "headline-lg-mobile": ["Montserrat"],
+                "headline-lg": ["Montserrat"],
+                "label-sm": ["Inter"],
+                "display-lg": ["Montserrat"]
+            },
+            "fontSize": {
+                "headline-md": ["24px", {"lineHeight": "28px", "fontWeight": "700"}],
+                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                "headline-lg-mobile": ["28px", {"lineHeight": "32px", "fontWeight": "800"}],
+                "headline-lg": ["32px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                "display-lg": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "900"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            font-family: 'Inter', sans-serif;
+            color: #e5e2e1;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #131313;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #ff6b00;
+            border-radius: 10px;
+        }
+        /* Custom number input hide arrows */
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { 
+          -webkit-appearance: none; 
+          margin: 0; 
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface flex flex-row-reverse items-center justify-between px-margin-mobile h-16 border-b border-surface-variant shadow-[0_4px_20px_rgba(255,182,147,0.1)]">
+<div class="flex items-center">
+<span class="material-symbols-outlined text-primary text-2xl">menu</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile uppercase tracking-tighter text-primary italic">יצירת משחק</h1>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center border border-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up profile photo of a focused basketball player in a dark atmospheric gym, high-contrast dramatic lighting, deep shadows, professional sports photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyVQ4SxiNVrBmCXFHOF2QDuI5brxdRpf-tdtkQ38uTmqvJoMTf_jC4714aWIugwOkBALjVfAbmp8wufbQhy-lEoK0OMWeppUWLdQf3bhGST1YTSoFGyBIfnMLS5D_AwLk442rfHueGDFBOvSZP0CGAcd3YEg5eh77Nsp5YdpCPmmc1xJRBsh9tbvzWeCOYtx1LCCElS_Lk9baO5hRETuL2jHeJMvp1pOgQMC1a5cfwDA9nU8MpsfjHOWfnuxsNuNBCtbWqb0T5P0k"/>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 px-margin-mobile max-w-lg mx-auto">
+<form class="space-y-8">
+<!-- Court Selection -->
+<div class="space-y-2">
+<label class="font-label-lg text-label-lg text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">sports_basketball</span>
+                    בחירת מגרש
+                </label>
+<div class="relative">
+<select class="w-full bg-surface-container-high border border-outline-variant rounded-xl px-4 py-4 pr-12 text-on-surface focus:border-primary-container focus:ring-1 focus:ring-primary-container appearance-none transition-all outline-none">
+<option>בחר מגרש מהרשימה...</option>
+<option>ספורטק צפון, תל אביב</option>
+<option>מגרש הברזל, רמת גן</option>
+<option>אולם הספורט, חולון</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-primary-container pointer-events-none">search</span>
+</div>
+</div>
+<!-- Date & Time Row -->
+<div class="grid grid-cols-2 gap-gutter">
+<div class="space-y-2">
+<label class="font-label-lg text-label-lg text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container">calendar_today</span>
+                        תאריך
+                    </label>
+<input class="w-full bg-surface-container-high border border-outline-variant rounded-xl px-4 py-4 text-on-surface focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all outline-none" type="date"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-lg text-label-lg text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container">schedule</span>
+                        שעה
+                    </label>
+<input class="w-full bg-surface-container-high border border-outline-variant rounded-xl px-4 py-4 text-on-surface focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all outline-none" type="time"/>
+</div>
+</div>
+<!-- Player Stepper -->
+<div class="space-y-3">
+<label class="font-label-lg text-label-lg text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container">groups</span>
+                    מספר שחקנים מקסימלי
+                </label>
+<div class="flex items-center justify-between bg-surface-container border border-outline-variant rounded-xl p-2 h-16">
+<button class="w-12 h-12 flex items-center justify-center bg-primary-container text-on-primary-container rounded-lg active:scale-95 transition-transform" onclick="decrement('player-count')" type="button">
+<span class="material-symbols-outlined font-bold">remove</span>
+</button>
+<div class="flex-1 flex justify-center">
+<input class="bg-transparent border-none text-center font-headline-md text-headline-md text-primary w-16 focus:ring-0" id="player-count" readonly="" type="number" value="10"/>
+</div>
+<button class="w-12 h-12 flex items-center justify-center bg-primary-container text-on-primary-container rounded-lg active:scale-95 transition-transform" onclick="increment('player-count')" type="button">
+<span class="material-symbols-outlined font-bold">add</span>
+</button>
+</div>
+</div>
+<!-- Skill Level Chips -->
+<div class="space-y-4">
+<label class="font-label-lg text-label-lg text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container">trending_up</span>
+                    רמת משחק
+                </label>
+<div class="flex gap-3 overflow-x-auto pb-2 custom-scrollbar">
+<label class="flex-shrink-0 cursor-pointer group">
+<input class="hidden peer" name="skill" type="radio"/>
+<div class="px-6 py-3 rounded-full border border-outline-variant text-on-surface-variant peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:border-primary-container transition-all group-hover:bg-surface-container-highest">
+<span class="font-label-lg text-label-lg uppercase">מתחילים</span>
+</div>
+</label>
+<label class="flex-shrink-0 cursor-pointer group">
+<input checked="" class="hidden peer" name="skill" type="radio"/>
+<div class="px-6 py-3 rounded-full border border-outline-variant text-on-surface-variant peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:border-primary-container transition-all group-hover:bg-surface-container-highest">
+<span class="font-label-lg text-label-lg uppercase">בינוני</span>
+</div>
+</label>
+<label class="flex-shrink-0 cursor-pointer group">
+<input class="hidden peer" name="skill" type="radio"/>
+<div class="px-6 py-3 rounded-full border border-outline-variant text-on-surface-variant peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:border-primary-container transition-all group-hover:bg-surface-container-highest">
+<span class="font-label-lg text-label-lg uppercase">מתקדמים</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Notes -->
+<div class="space-y-2">
+<label class="font-label-lg text-label-lg text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container">notes</span>
+                    הערה (אופציונלי)
+                </label></div>
+<textarea class="w-full bg-surface-container-high border border-outline-variant rounded-xl px-4 py-4 text-on-surface focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all outline-none resize-none placeholder:opacity-40" placeholder="הוסף פרטים נוספים על המשחק..." rows="3"></textarea>
+</form>
+</main>
+<!-- Fixed Action Button Area -->
+<div class="fixed bottom-[72px] left-0 w-full px-margin-mobile py-4 bg-gradient-to-t from-background via-background to-transparent z-40">
+<button class="w-full bg-primary-container text-on-primary-container font-headline-md text-headline-md uppercase py-5 rounded-xl shadow-[0_8px_32px_rgba(255,107,0,0.3)] active:scale-95 transition-transform duration-200">
+            צור משחק
+        </button>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container border-t border-white/10 shadow-[0_-4px_12px_rgba(0,0,0,0.5)] flex flex-row-reverse justify-around items-center px-4 py-2 pb-safe">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center text-secondary opacity-70 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm uppercase font-bold">בית</span>
+</a>
+<!-- Courts -->
+<a class="flex flex-col items-center justify-center text-secondary opacity-70 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined">sports_basketball</span>
+<span class="font-label-sm text-label-sm uppercase font-bold">מגרשים</span>
+</a>
+<!-- Create (Active) -->
+<a class="flex flex-col items-center justify-center text-on-primary-container bg-primary-container rounded-full px-4 py-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+<span class="font-label-sm text-label-sm uppercase font-bold">יצירה</span>
+</a>
+<!-- Activities -->
+<a class="flex flex-col items-center justify-center text-secondary opacity-70 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined">reorder</span>
+<span class="font-label-sm text-label-sm uppercase font-bold">פעילות</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-secondary opacity-70 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm uppercase font-bold">פרופיל</span>
+</a>
+</nav>
+<script>
+        function increment(id) {
+            const input = document.getElementById(id);
+            let val = parseInt(input.value);
+            if(val < 20) input.value = val + 1;
+        }
+
+        function decrement(id) {
+            const input = document.getElementById(id);
+            let val = parseInt(input.value);
+            if(val > 1) input.value = val - 1;
+        }
+    </script>
+</body></html>

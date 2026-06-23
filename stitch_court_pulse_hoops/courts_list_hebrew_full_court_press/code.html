@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="he"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Shared Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#c8c6c6",
+                    "surface-container-low": "#1c1b1b",
+                    "tertiary-fixed": "#e4e2e1",
+                    "surface-bright": "#393939",
+                    "on-primary-fixed": "#351000",
+                    "on-error": "#690005",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-container": "#b7b5b4",
+                    "on-surface-variant": "#e2bfb0",
+                    "surface-variant": "#353534",
+                    "on-tertiary": "#303030",
+                    "on-secondary-fixed": "#1b1b1c",
+                    "outline": "#a98a7d",
+                    "error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#474747",
+                    "surface": "#131313",
+                    "background": "#131313",
+                    "surface-container-lowest": "#0e0e0e",
+                    "secondary-container": "#474746",
+                    "on-background": "#e5e2e1",
+                    "tertiary-fixed-dim": "#c8c6c6",
+                    "on-tertiary-container": "#313131",
+                    "surface-dim": "#131313",
+                    "primary-fixed-dim": "#ffb693",
+                    "primary-container": "#ff6b00",
+                    "inverse-on-surface": "#313030",
+                    "on-primary": "#561f00",
+                    "error": "#ffb4ab",
+                    "inverse-surface": "#e5e2e1",
+                    "outline-variant": "#5a4136",
+                    "surface-container-high": "#2a2a2a",
+                    "secondary-fixed": "#e5e2e1",
+                    "on-surface": "#e5e2e1",
+                    "on-secondary-fixed-variant": "#474746",
+                    "on-primary-fixed-variant": "#7a3000",
+                    "inverse-primary": "#a04100",
+                    "surface-container-highest": "#353534",
+                    "on-secondary": "#303030",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "primary": "#ffb693",
+                    "surface-container": "#201f1f",
+                    "secondary": "#c8c6c5",
+                    "primary-fixed": "#ffdbcc",
+                    "on-tertiary-fixed": "#1b1c1c",
+                    "surface-tint": "#ffb693",
+                    "on-primary-container": "#572000",
+                    "tertiary-container": "#9a9999"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "base": "4px",
+                    "xl": "48px",
+                    "md": "20px",
+                    "lg": "32px",
+                    "gutter": "16px",
+                    "xs": "8px",
+                    "margin-tablet": "32px",
+                    "sm": "12px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Montserrat"],
+                    "body-md": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "headline-lg-mobile": ["Montserrat"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Montserrat"],
+                    "label-sm": ["Inter"],
+                    "display-lg": ["Montserrat"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "32px", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "900"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .pulse-orange {
+            box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.4);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 107, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0); }
+        }
+        /* Custom scrollbar for horizontal chips */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="overflow-x-hidden pb-20">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface-container dark:bg-surface-container border-b border-surface-variant flex flex-row-reverse justify-between items-center px-margin-mobile h-16">
+<div class="flex items-center gap-xs">
+<button class="p-2 text-on-surface-variant hover:bg-surface-variant transition-colors active:scale-95 duration-100 rounded-full">
+<span class="material-symbols-outlined" data-icon="filter_list">filter_list</span>
+</button>
+</div>
+<div class="flex-1 mx-4">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute right-3 text-on-surface-variant pointer-events-none" data-icon="search">search</span>
+<input class="w-full bg-surface-container-highest border-none rounded-full pr-10 pl-4 py-2 text-body-md font-body-md focus:ring-2 focus:ring-primary-container text-on-surface placeholder:text-on-surface-variant/40" placeholder="חיפוש מגרש" type="text"/>
+</div>
+</div>
+<div class="flex items-center">
+<h1 class="font-headline-md text-headline-md font-black text-primary uppercase tracking-tighter">FULL COURT PRESS</h1>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="mt-16 pt-base">
+<!-- Filters Section -->
+<section class="py-4 bg-surface-container/50 border-b border-surface-variant/30 overflow-x-auto no-scrollbar whitespace-nowrap flex gap-sm px-margin-mobile">
+<button class="px-4 py-1.5 rounded-full bg-primary-container text-on-primary-container font-label-lg text-label-lg flex items-center gap-xs">
+<span>מרחק</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-lg text-label-lg border border-outline-variant/30 hover:bg-surface-variant transition-colors">
+                מקורה/פתוח
+            </button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-lg text-label-lg border border-outline-variant/30 hover:bg-surface-variant transition-colors">
+                מספר שחקנים פעילים
+            </button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-lg text-label-lg border border-outline-variant/30 hover:bg-surface-variant transition-colors">
+                דירוג
+            </button>
+</section>
+<!-- Map Preview Section -->
+<section class="relative w-full h-[220px] overflow-hidden">
+<div class="absolute inset-0 bg-surface-container-lowest" data-alt="A stylized dark-themed digital map of Tel Aviv at night. The map features minimalist charcoal-gray streets and deep black areas representing parks. Several glowing neon orange basketball-shaped icons mark specific court locations across the urban landscape, creating a high-contrast athletic aesthetic. The mood is energetic and premium." data-location="Tel Aviv" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBP9hYT4fae1R6FZwoR92xl8wrQBrT-VgHGfNnCxlqkcSGYWEf_I1TgQvr_PwO7Mvji8jyG3iqQ8NAKRjRVPX1tBkFZFqCUfby8qFOCi8DUJZUrdvgQMfLadfiClFYhIIdCDn9uzDdM0JRGnj_WaF3zM-JLd0Y4YHWDcusBBXc-CJ_ggw_u_7SgNKoNR9E-UEN5cUIlyqZiehXqzbovVNNqtspk-jOMtuoQCvJ5WbJzTOp4nWcbmTFgzhjM8OjFOL-KlLzHn1WorR8')">
+</div>
+<!-- Overlay gradient for transitions -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
+<!-- Map Interaction Label -->
+<div class="absolute bottom-4 right-margin-mobile glass-card px-4 py-2 rounded-lg flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="map">map</span>
+<span class="font-label-lg text-label-lg text-on-surface">צפה במפה המלאה</span>
+</div>
+</section>
+<!-- Court List Section -->
+<section class="px-margin-mobile mt-lg">
+<div class="flex justify-between items-end mb-md">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">מגרשים בסביבה</h2>
+<span class="font-label-sm text-label-sm text-primary">12 נמצאו</span>
+</div>
+<!-- List of Cards -->
+<div class="grid grid-cols-1 gap-md">
+<!-- Card 1 (Active) -->
+<div class="group relative bg-surface-container rounded-xl overflow-hidden border border-surface-variant transition-all hover:border-primary-container/50">
+<div class="flex h-32">
+<div class="w-1/3 relative">
+<img class="w-full h-full object-cover" data-alt="A professional high-intensity photograph of a modern outdoor basketball court in Tel Aviv at dusk. The court features clean orange and black painted lines under bright stadium lighting. The atmosphere is energetic with deep charcoal surroundings and vibrant orange accents. Cinematic quality, professional sports photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWI6dapmDWVQlCAeSLKdiGsEiuZ815TljgdgOJlzILkZPSG1MAJOH9GDPc8A_4ry72tSpK56mtVYl1VFBx5y1plg8Wen0JY1vOBktYPW6lg7EXjusSTQ_h3tU9U355ZscONY5VnXkCGROc2imFQIcsEyycGnAeeuELBaK4P_rO2KGt81DLxLPAB2g6PBfSY5iT7Remf3rqPL2_WPLRfWxyEGoYxNnuxF49hhkmPMF0H_1mdi5KNV8wws6a2aMMKDsk5D0V6iPim9c"/>
+<div class="absolute inset-0 bg-gradient-to-l from-surface-container to-transparent"></div>
+</div>
+<div class="w-2/3 p-4 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-headline-md text-on-surface leading-tight">פארק הירקון</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">0.8 ק"מ</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">תל אביב - צפון</p>
+</div>
+<div class="flex items-center gap-xs">
+<div class="w-2.5 h-2.5 bg-primary-container rounded-full pulse-orange"></div>
+<span class="font-label-lg text-label-lg text-primary">8 שחקנים פעילים</span>
+</div>
+</div>
+</div>
+<div class="absolute top-2 left-2 bg-primary-container text-on-primary-container px-2 py-0.5 rounded font-label-sm text-label-sm uppercase font-bold">Live</div>
+</div>
+<!-- Card 2 -->
+<div class="group relative bg-surface-container rounded-xl overflow-hidden border border-surface-variant transition-all hover:border-primary-container/50">
+<div class="flex h-32">
+<div class="w-1/3 relative">
+<img class="w-full h-full object-cover" data-alt="An indoor premium basketball court with polished hardwood floors reflecting bright overhead lights. The walls are dark gray, and the hoops are professional-grade with orange rims. The aesthetic is clean, modern, and high-performance. Mood is focused and elite." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0fk7FV2VM8zpi9BSJU-40k9CAcuhHnWlvLTKhqTTOd8XCA8auvhOoU5lBAAWCiVCBTQpC9ZABumPMl3UbfW0hzVQ48bbxXcVIxsO9Q1JC4WkHDX95wdtDt0Fe-JP1LGQfJRZLl-sRqIlZLNoqFCN96dm9ntMmLf3b6KnDhrhw4ZQ0Sxzm2Yvu8sSCOWyY8wJmnW6jRH4sCj-hxS2ZKZXYNCxTYNbzTfAZgvyePzGK6MU9fl410f8Fvx2XZ6o_gxlqwdOtYcdB9iI"/>
+<div class="absolute inset-0 bg-gradient-to-l from-surface-container to-transparent"></div>
+</div>
+<div class="w-2/3 p-4 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-headline-md text-on-surface leading-tight">מגרש "הכלוב"</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">1.2 ק"מ</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">יד אליהו</p>
+</div>
+<div class="flex items-center gap-xs">
+<div class="w-2.5 h-2.5 bg-secondary rounded-full opacity-50"></div>
+<span class="font-label-lg text-label-lg text-on-surface-variant">2 שחקנים כרגע</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group relative bg-surface-container rounded-xl overflow-hidden border border-surface-variant transition-all hover:border-primary-container/50">
+<div class="flex h-32">
+<div class="w-1/3 relative">
+<img class="w-full h-full object-cover" data-alt="A streetball court located between tall urban buildings in a dark atmospheric setting. The court is illuminated by a single warm orange streetlamp, highlighting the gritty asphalt and the chain-link fence. High contrast, cinematic noir basketball aesthetic with vibrant orange glows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmq5BIcmCBRARiQ0YRsjFZfcAeDr3TyDeM0WZMeoM0jnwvIHHleec3wLKVz6bewzfExdn03DIpiodInnwu9oUJkpq_TwXzNFhhIg-GNuOLiZugxsSK96hkPXpzkrfk-eDQwpBkNRdmflF-Lksyq4uaPl6F4ptsCbxme8jXVkaFevdz2ex1vrjPmQvVn-JCcpOJuRe1e6wIz0mf8crfp5NQ6wxmivrrFY79Q6Aeo9BRwrMqAMOO6T1Q0Db3aP7ZX0OT7h_fk4utOgI"/>
+<div class="absolute inset-0 bg-gradient-to-l from-surface-container to-transparent"></div>
+</div>
+<div class="w-2/3 p-4 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-headline-md text-on-surface leading-tight">ספורטק דרום</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2.5 ק"מ</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">דרך הטייסים</p>
+</div>
+<div class="flex items-center gap-xs">
+<div class="w-2.5 h-2.5 bg-primary-container rounded-full pulse-orange"></div>
+<span class="font-label-lg text-label-lg text-primary">14 שחקנים פעילים</span>
+</div>
+</div>
+</div>
+<div class="absolute top-2 left-2 bg-primary-container text-on-primary-container px-2 py-0.5 rounded font-label-sm text-label-sm uppercase font-bold">Live</div>
+</div>
+<!-- Card 4 -->
+<div class="group relative bg-surface-container rounded-xl overflow-hidden border border-surface-variant transition-all hover:border-primary-container/50">
+<div class="flex h-32">
+<div class="w-1/3 relative">
+<img class="w-full h-full object-cover" data-alt="A close-up shot of a basketball swishing through an orange metal net in a dark court. The background is blurred with bokeh stadium lights. The focus is on the textures of the orange basketball and the metallic net. High-performance, aggressive sporting visual style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzRkWYMb4-Bh2aTy_lyp29yxa-1OCLq5ofbpJJDvctEoJKC3c1G-nw5gayvoCzVTxsE6LRqECzt8oQZIFju9UAPNueFTrYhML6MWzjsEtoazAQtrRyOhsUW9yYlAV6-FLj-J5lOeYLk7uq9L2-MnhSGK1xbZeRBLEScNIaxjWBrNtzSRhwpuWVCE2j-5H--6I1ChKMj4--dhPBL0fdNKkFo8Kp632bIVAWGT17Vb0og0C3xDixg-f66FZZwJjP0eGLtQq6ioTHp5o"/>
+<div class="absolute inset-0 bg-gradient-to-l from-surface-container to-transparent"></div>
+</div>
+<div class="w-2/3 p-4 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-headline-md text-on-surface leading-tight">מרכז הספורט אבני</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">3.1 ק"מ</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">רמת גן</p>
+</div>
+<div class="flex items-center gap-xs">
+<div class="w-2.5 h-2.5 bg-secondary rounded-full opacity-50"></div>
+<span class="font-label-lg text-label-lg text-on-surface-variant">0 שחקנים</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 flex flex-row-reverse justify-around items-center py-2 bg-surface-container border-t border-surface-variant shadow-[0_-4px_10px_rgba(255,107,0,0.1)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary-fixed-dim transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">בית</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold hover:text-primary-fixed-dim transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="sports_basketball" style="font-variation-settings: 'FILL' 1;">sports_basketball</span>
+<span class="font-label-sm text-label-sm">מגרשים</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary-fixed-dim transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="font-label-sm text-label-sm">חדש</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary-fixed-dim transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">פרופיל</span>
+</a>
+</nav>
+<!-- Floating Action Button (FAB) - Suppression logic: only on main screens -->
+<button class="fixed bottom-24 left-margin-mobile w-14 h-14 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-transform z-40">
+<span class="material-symbols-outlined text-[32px]" data-icon="add">add</span>
+</button>
+<script>
+        // Simple micro-interaction for filter chips
+        document.querySelectorAll('section button').forEach(button => {
+            button.addEventListener('click', function() {
+                if (!this.classList.contains('bg-primary-container')) {
+                    // Deselect others (simplified)
+                    document.querySelectorAll('section button').forEach(btn => {
+                        btn.classList.remove('bg-primary-container', 'text-on-primary-container');
+                        btn.classList.add('bg-surface-container-highest', 'text-on-surface-variant');
+                    });
+                    // Select this one
+                    this.classList.remove('bg-surface-container-highest', 'text-on-surface-variant');
+                    this.classList.add('bg-primary-container', 'text-on-primary-container');
+                }
+            });
+        });
+    </script>
+</body></html>

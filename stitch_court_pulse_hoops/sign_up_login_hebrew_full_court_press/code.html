@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="he"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .glass-panel {
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .orange-glow {
+            box-shadow: 0 0 20px rgba(255, 107, 0, 0.15);
+        }
+
+        .tab-transition {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #ff6b00 !important;
+            box-shadow: 0 0 0 1px #ff6b00;
+        }
+
+        /* Hide Scrollbar */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#313030",
+                        "secondary-fixed": "#e5e2e1",
+                        "tertiary-fixed": "#e4e2e1",
+                        "surface-variant": "#353534",
+                        "on-surface": "#e5e2e1",
+                        "surface": "#131313",
+                        "primary-fixed": "#ffdbcc",
+                        "on-secondary-fixed-variant": "#474746",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "surface-bright": "#393939",
+                        "on-secondary": "#303030",
+                        "secondary-container": "#474746",
+                        "on-secondary-fixed": "#1b1b1c",
+                        "secondary": "#c8c6c5",
+                        "outline": "#a98a7d",
+                        "on-tertiary-container": "#313131",
+                        "error": "#ffb4ab",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "on-surface-variant": "#e2bfb0",
+                        "on-primary": "#561f00",
+                        "surface-container": "#201f1f",
+                        "background": "#131313",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "tertiary": "#c8c6c6",
+                        "surface-container-high": "#2a2a2a",
+                        "primary-container": "#ff6b00",
+                        "surface-container-low": "#1c1b1b",
+                        "tertiary-container": "#9a9999",
+                        "inverse-primary": "#a04100",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "surface-tint": "#ffb693",
+                        "surface-container-highest": "#353534",
+                        "error-container": "#93000a",
+                        "primary-fixed-dim": "#ffb693",
+                        "inverse-surface": "#e5e2e1",
+                        "on-primary-fixed-variant": "#7a3000",
+                        "on-primary-fixed": "#351000",
+                        "outline-variant": "#5a4136",
+                        "on-primary-container": "#572000",
+                        "primary": "#ffb693",
+                        "on-background": "#e5e2e1",
+                        "surface-dim": "#131313",
+                        "on-tertiary": "#303030",
+                        "on-secondary-container": "#b7b5b4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-tablet": "32px",
+                        "xs": "8px",
+                        "xl": "48px",
+                        "sm": "12px",
+                        "base": "4px",
+                        "lg": "32px",
+                        "gutter": "16px",
+                        "margin-mobile": "16px",
+                        "md": "20px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Montserrat"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "display-lg": ["Montserrat"],
+                        "label-lg": ["Inter"],
+                        "headline-lg-mobile": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "28px", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "32px", "fontWeight": "800"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col items-center justify-center p-4">
+<!-- Background Atmospheric Effect -->
+<div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+<div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-background to-background"></div>
+</div>
+<!-- Main Auth Container -->
+<main class="relative z-10 w-full max-w-md flex flex-col items-center">
+<!-- Logo Section -->
+<div class="mb-10 text-center">
+<h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-primary uppercase tracking-tighter mb-2 leading-none">
+                FULL COURT PRESS
+            </h1>
+<p class="font-label-lg text-label-lg text-on-surface-variant tracking-[0.2em] uppercase">הצטרף למשחק</p>
+</div>
+<!-- Auth Card -->
+<div class="w-full glass-panel rounded-xl p-6 md:p-8 flex flex-col gap-6 orange-glow">
+<!-- Tabs -->
+<div class="flex bg-surface-container-low rounded-lg p-1 relative overflow-hidden">
+<button class="flex-1 py-3 text-center font-label-lg text-label-lg relative z-10 tab-transition text-on-surface" id="tab-login" onclick="switchTab('login')">
+                    התחברות
+                </button>
+<button class="flex-1 py-3 text-center font-label-lg text-label-lg relative z-10 tab-transition text-on-surface-variant" id="tab-signup" onclick="switchTab('signup')">
+                    הרשמה
+                </button>
+<div class="absolute top-1 bottom-1 right-1 w-[calc(50%-4px)] bg-primary-container rounded-md tab-transition translate-x-0" id="tab-indicator"></div>
+</div>
+<!-- Form Area -->
+<form class="flex flex-col gap-5" id="auth-form">
+<!-- Full Name (Signup Only) -->
+<div class="hidden flex flex-col gap-2" id="field-fullname">
+<label class="font-label-sm text-label-sm text-on-surface-variant px-1">שם מלא</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">person</span>
+<input class="w-full bg-surface-container-highest border border-outline-variant rounded-lg py-3 pr-10 pl-4 font-body-md text-on-surface placeholder:text-on-surface-variant/40 transition-all" placeholder="הכנס את שמך המלא" type="text"/>
+</div>
+</div>
+<!-- Email -->
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant px-1">אימייל</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">mail</span>
+<input class="w-full bg-surface-container-highest border border-outline-variant rounded-lg py-3 pr-10 pl-4 font-body-md text-on-surface placeholder:text-on-surface-variant/40 transition-all" placeholder="email@example.com" type="email"/>
+</div>
+</div>
+<!-- Password -->
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant px-1">סיסמה</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">lock</span>
+<input class="w-full bg-surface-container-highest border border-outline-variant rounded-lg py-3 pr-10 pl-10 font-body-md text-on-surface placeholder:text-on-surface-variant/40 transition-all" placeholder="••••••••" type="password"/>
+<button class="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+<!-- Skill Level (Signup Only) -->
+<div class="hidden flex flex-col gap-2" id="field-skill">
+<label class="font-label-sm text-label-sm text-on-surface-variant px-1">רמת משחק</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">sports_basketball</span>
+<select class="w-full bg-surface-container-highest border border-outline-variant rounded-lg py-3 pr-10 pl-4 font-body-md text-on-surface appearance-none focus:border-primary transition-all">
+<option disabled="" selected="" value="">בחר רמת מיומנות</option>
+<option value="beginner">מתחיל (Casual)</option>
+<option value="intermediate">בינוני (Semi-Pro)</option>
+<option value="advanced">מתקדם (Baller)</option>
+<option value="pro">מקצוען (Elite)</option>
+</select>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Action Button -->
+<button class="w-full bg-primary-container text-on-primary-container font-headline-md text-label-lg py-4 rounded-lg uppercase tracking-widest active:scale-95 transition-transform hover:brightness-110 mt-2" type="submit">
+                    המשך
+                </button>
+</form>
+<!-- Divider -->
+<div class="flex items-center gap-4 py-2">
+<div class="h-[1px] flex-1 bg-outline-variant"></div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">או</span>
+<div class="h-[1px] flex-1 bg-outline-variant"></div>
+</div>
+<!-- Social Login -->
+<button class="w-full border border-outline-variant bg-transparent hover:bg-surface-container-highest text-on-surface font-label-lg py-3 rounded-lg flex items-center justify-center gap-3 transition-colors active:scale-[0.98]">
+<svg class="w-5 h-5" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.27.81-.57z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+                המשך עם Google
+            </button>
+</div>
+<!-- Footer -->
+<p class="mt-8 text-on-surface-variant font-label-sm text-label-sm text-center opacity-60">
+            בשימוש באפליקציה, אתה מסכים ל<a class="underline hover:text-primary" href="#">תנאי השימוש</a> ול<a class="underline hover:text-primary" href="#">מדיניות הפרטיות</a>
+</p>
+</main>
+<!-- Floating Atmosphere -->
+<div class="fixed bottom-0 left-0 w-full p-4 pointer-events-none opacity-20 hidden md:block">
+<div class="flex justify-between items-end">
+<div class="text-on-surface-variant text-[120px] font-black leading-none select-none">FCP</div>
+<div class="h-64 w-64">
+</div>
+</div>
+</div>
+<script>
+        function switchTab(type) {
+            const loginTab = document.getElementById('tab-login');
+            const signupTab = document.getElementById('tab-signup');
+            const indicator = document.getElementById('tab-indicator');
+            const fieldFullName = document.getElementById('field-fullname');
+            const fieldSkill = document.getElementById('field-skill');
+
+            if (type === 'login') {
+                indicator.style.transform = 'translateX(0)';
+                loginTab.classList.remove('text-on-surface-variant');
+                loginTab.classList.add('text-on-surface');
+                signupTab.classList.add('text-on-surface-variant');
+                signupTab.classList.remove('text-on-surface');
+                
+                fieldFullName.classList.add('hidden');
+                fieldSkill.classList.add('hidden');
+            } else {
+                indicator.style.transform = 'translateX(-100%)';
+                signupTab.classList.remove('text-on-surface-variant');
+                signupTab.classList.add('text-on-surface');
+                loginTab.classList.add('text-on-surface-variant');
+                loginTab.classList.remove('text-on-surface');
+                
+                fieldFullName.classList.remove('hidden');
+                fieldSkill.classList.remove('hidden');
+            }
+        }
+
+        // Initialize state
+        document.addEventListener('DOMContentLoaded', () => {
+            switchTab('login');
+        });
+    </script>
+</body></html>

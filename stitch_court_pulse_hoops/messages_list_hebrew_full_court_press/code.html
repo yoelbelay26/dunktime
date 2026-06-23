@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="he"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .unread-glow {
+            box-shadow: 0 0 8px rgba(255, 107, 0, 0.4);
+        }
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #131313;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #2e2e2e;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#c8c6c6",
+                        "surface": "#131313",
+                        "outline-variant": "#5a4136",
+                        "tertiary-fixed": "#e4e2e1",
+                        "on-surface": "#e5e2e1",
+                        "on-primary": "#561f00",
+                        "surface-bright": "#393939",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "on-tertiary-container": "#313131",
+                        "surface-container-high": "#2a2a2a",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "surface-container-highest": "#353534",
+                        "inverse-surface": "#e5e2e1",
+                        "on-surface-variant": "#e2bfb0",
+                        "on-secondary-fixed-variant": "#474746",
+                        "outline": "#a98a7d",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "error-container": "#93000a",
+                        "error": "#ffb4ab",
+                        "background": "#131313",
+                        "on-primary-fixed-variant": "#7a3000",
+                        "surface-variant": "#353534",
+                        "on-tertiary": "#303030",
+                        "tertiary-container": "#9a9999",
+                        "secondary-container": "#474746",
+                        "on-primary-container": "#572000",
+                        "primary-container": "#ff6b00",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-container-low": "#1c1b1b",
+                        "primary": "#ffb693",
+                        "primary-fixed-dim": "#ffb693",
+                        "inverse-primary": "#a04100",
+                        "surface-tint": "#ffb693",
+                        "secondary": "#c8c6c5",
+                        "inverse-on-surface": "#313030",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "on-secondary": "#303030",
+                        "surface-container": "#201f1f",
+                        "on-primary-fixed": "#351000",
+                        "on-secondary-container": "#b7b5b4",
+                        "on-background": "#e5e2e1",
+                        "secondary-fixed": "#e5e2e1",
+                        "primary-fixed": "#ffdbcc",
+                        "on-secondary-fixed": "#1b1b1c",
+                        "surface-dim": "#131313"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "xl": "48px",
+                        "xs": "8px",
+                        "margin-mobile": "16px",
+                        "sm": "12px",
+                        "md": "20px",
+                        "lg": "32px",
+                        "base": "4px",
+                        "margin-tablet": "32px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "body-md": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "display-lg": ["Montserrat"],
+                        "headline-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "32px", "fontWeight": "800"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "28px", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                        "headline-lg": ["32px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "800"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface flex flex-col min-h-screen">
+<!-- TopAppBar Component -->
+<header class="fixed top-0 w-full z-50 bg-surface-container-low border-b border-white/10 flex flex-row-reverse justify-between items-center px-margin-mobile h-16">
+<div class="flex items-center gap-4">
+<h1 class="text-headline-md font-headline-md font-black text-primary-container uppercase tracking-tighter italic">הודעות</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform hover:opacity-80">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+</button>
+<button class="active:scale-95 transition-transform hover:opacity-80">
+<span class="material-symbols-outlined text-on-surface-variant">menu</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-16 pb-24 overflow-y-auto custom-scrollbar">
+<!-- Messages List -->
+<div class="flex flex-col">
+<!-- Conversation Card: Unread Game Group -->
+<div class="px-margin-mobile py-4 bg-surface-container hover:bg-surface-variant transition-colors flex flex-row-reverse items-center border-b border-white/5 cursor-pointer">
+<div class="relative">
+<img class="w-14 h-14 rounded-full object-cover border-2 border-primary-container" data-alt="A gritty urban basketball court at twilight with dramatic high-contrast lighting. A group of diverse streetballers are huddled in the background. The style is professional sports photography with deep shadows and vibrant orange highlights, capturing a high-intensity athletic vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtHKus1FvQi5oUmgwQ68ldigsjpAsgQkjAsaZMCzPncc17fO2sQJ2jgS9X3T_ElEwVKzPy2oaDKBC8mVuWOW32Df7EtGPhe9HAZz--88znclUI7QG3odRLpPVcC09cz8onDyaSg3dEWNo3uDHcNdow36kofp5vPSbYwPNyqiRhPapSRrgXLWPqbc3tuqAANcQtQDsjRvZEt6haRZeYEvEyDpLQdWNgOVgYiTRzYcusyZGm11-uPxUkCCCIFvQBz-GRGy9CRlV_GBs"/>
+<span class="absolute top-0 right-0 w-3.5 h-3.5 bg-primary-container rounded-full border-2 border-surface unread-glow"></span>
+</div>
+<div class="flex-grow flex flex-col mr-4 text-right">
+<div class="flex justify-between items-center flex-row-reverse">
+<span class="text-label-lg font-label-lg text-primary-container">משחק בפארק הירקון</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">10:45</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface font-bold truncate">מישהו מביא כדור חדש?</p>
+</div>
+</div>
+<!-- Conversation Card: Read Individual -->
+<div class="px-margin-mobile py-4 bg-surface-dim hover:bg-surface-variant transition-colors flex flex-row-reverse items-center border-b border-white/5 cursor-pointer">
+<img class="w-14 h-14 rounded-full object-cover" data-alt="A close-up portrait of a competitive male basketball player in his late 20s. He is wearing a dark sports jersey, sweating after a game. The lighting is cinematic, coming from one side, creating a performance dark mode aesthetic. Deep charcoal background with sharp facial features and intense focused eyes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ7Asx5mk_wvyVct1e2ciH4Tpy5RjgyHPdK2jugyRBC9oKSlYxOH_l-yLzUItv6HLuO19kh23K_eWpt_cVT5WT0LM3C49LUgAbWhwmSO_yDT4tlFw8J3yBHKkHNGQpAqcsLZpQfbpZU0H9H-_wcQE85YkbDXkL7KgI1ND2DzbxFjQXvqo1Cus6IR5iIUKiC27uPvbvYYJZPek4lMgXSh_hh8xPEjlfeK_y8gbw_1iC4iWgbsha2JCS802J1blsO1cWSrbl38TflcY"/>
+<div class="flex-grow flex flex-col mr-4 text-right">
+<div class="flex justify-between items-center flex-row-reverse">
+<span class="text-label-lg font-label-lg text-on-surface">עידו</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">אתמול</span>
+</div>
+<p class="text-body-md font-body-md text-tertiary truncate">סגרנו על 20:00 במגרש הצפוני.</p>
+</div>
+</div>
+<!-- Conversation Card: Unread Individual -->
+<div class="px-margin-mobile py-4 bg-surface-container hover:bg-surface-variant transition-colors flex flex-row-reverse items-center border-b border-white/5 cursor-pointer">
+<div class="relative">
+<img class="w-14 h-14 rounded-full object-cover border-2 border-primary-container" data-alt="Action shot of a young female athlete dribbling a basketball on a dark court. The scene is illuminated by neon orange stadium lights. High-speed shutter effect to capture kinetic energy. The overall mood is aggressive, ready for a high-intensity game, fitting a premium sporting event application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGQxF8tjw0XMpYpw0Nv1lX2aVaTZf6if66TpENmTO2dchjMR8dtpRTk8uLTwfy3EJXgH8B1Sf4mDjQLCdk12hJNAjUorznr8MU8KkXWwpddUCgwQeKRg5WlRfHbrtNhDeTIT4qZ8I2C5TJV61uWVnQQqLlKuLPQyiRSFME0Ha--f8yTNa3dIwwoz3n6HhcFGAm3Gize2RCTDHs1eBTSHwHCWEpDzEisnLLRhWM7TPK1n5wGBiIzK-NTYSqh6ldUlFJFtTgxq2bll0"/>
+<span class="absolute top-0 right-0 w-3.5 h-3.5 bg-primary-container rounded-full border-2 border-surface unread-glow"></span>
+</div>
+<div class="flex-grow flex flex-col mr-4 text-right">
+<div class="flex justify-between items-center flex-row-reverse">
+<span class="text-label-lg font-label-lg text-primary-container">נועה</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">אתמול</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface font-bold truncate">תוסיף אותי לקבוצה של יום שלישי</p>
+</div>
+</div>
+<!-- Conversation Card: Read Game Group -->
+<div class="px-margin-mobile py-4 bg-surface-dim hover:bg-surface-variant transition-colors flex flex-row-reverse items-center border-b border-white/5 cursor-pointer">
+<img class="w-14 h-14 rounded-full object-cover" data-alt="Wide angle shot of an outdoor basketball hoop at night. The rim is glowing with a faint orange light. Dark charcoal sky with subtle stadium light flares. The composition is clean and modern, focusing on the grit and essence of street basketball. Minimalist and high-contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmm9kshfSSNY0jbzk_KRfP4-ZGvs5_JQbXLD8MkPDQ0W5MZPk7NrvOKll8u_6xWUwVbE2ZLqCAElp52MK9MUKv_pWYrLFp3rgx68PTHuraLal1Nwq5pw5Zf_vq1XMPYGuA_ychVCIr8PGv3YdvVrVhIuOJJhZU-cFkpHBdVpMyq0eXpyYnDrPZKRtRvuvVPgB7s5NvLIqJqp83vXk1YW8xaf0OeYaHRXORzbkSyG3RJE5gwphUrm5xfrJfxC8uRp2uMwYyu_o-_zE"/>
+<div class="flex-grow flex flex-col mr-4 text-right">
+<div class="flex justify-between items-center flex-row-reverse">
+<span class="text-label-lg font-label-lg text-on-surface">ליגת השכונות - גבעתיים</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">02/11</span>
+</div>
+<p class="text-body-md font-body-md text-tertiary truncate">פורסם לוח המשחקים המעודכן לסופ"ש.</p>
+</div>
+</div>
+<!-- Conversation Card: Individual -->
+<div class="px-margin-mobile py-4 bg-surface-dim hover:bg-surface-variant transition-colors flex flex-row-reverse items-center border-b border-white/5 cursor-pointer">
+<img class="w-14 h-14 rounded-full object-cover" data-alt="Portrait of a veteran basketball coach in dark athletic gear. He is standing in a dimly lit gym with professional lighting highlighting his determined expression. The background is blurred with hints of basketball equipment. High-end, corporate-sporty visual style with deep charcoal tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXDek2xw_LffwDAY07B-GU4Xjhs1X5wWozp0C_aWZWq-OMfFNVfv_C_guiqsP2yxpSa_aleW9fI_V8_JoZoJ3b465ETv_peew9AwtX2J4mWZrvfBb8vDHJin-65PnhshfBaF_DZPBc0ZtV-84XSd8StV-8SO2c1FiYHwiltljKxHuORKXwkXUi2-JBhu9FZQkcXjRq2kmkFEQ4ppRAlRzxKxCn7GEuuYu1_69-8VZ1_UuUa5Zh-WzEvGUbshbgZbUq3GQd9PkJQG0"/>
+<div class="flex-grow flex flex-col mr-4 text-right">
+<div class="flex justify-between items-center flex-row-reverse">
+<span class="text-label-lg font-label-lg text-on-surface">מאמן יוסי</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">28/10</span>
+</div>
+<p class="text-body-md font-body-md text-tertiary truncate">אימון אישי מחר ב-16:00.</p>
+</div>
+</div>
+<!-- Conversation Card: Game Group -->
+<div class="px-margin-mobile py-4 bg-surface-dim hover:bg-surface-variant transition-colors flex flex-row-reverse items-center border-b border-white/5 cursor-pointer">
+<img class="w-14 h-14 rounded-full object-cover" data-alt="Artistic shot of basketball sneakers on a worn court floor. The texture of the asphalt and the details of the shoes are clear. Low-angle lighting creates dramatic shadows. Color palette focused on slate gray and vibrant orange accents. Professional athletic aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBK5AQ3sY9uOpCZvTHAv65xb5xOEDXvaLhXW5bq2o5_SagaplxR3sPe9BUjXapNgAzCo31UGKiG8AE2u9WcHqW8_K9Za0PYz_csLENfu1abVrDMTw9MAPnF_nwZ1JG_Lr1d6dOD-LuYqT6VOOCFP_od9b1lqSd28WymymO7qBeSpjBKsnuUHNhNFy6PaYAqw54lCGGjYcC4DwmgLqpdQWKgiCEyOrxs5GLbc6kBvHo9n47q9fVXSbpdhTC3Gfc1vCGzB3BE9EgnCqI"/>
+<div class="flex-grow flex flex-col mr-4 text-right">
+<div class="flex justify-between items-center flex-row-reverse">
+<span class="text-label-lg font-label-lg text-on-surface">משחק פתוח - ספורטק</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">25/10</span>
+</div>
+<p class="text-body-md font-body-md text-tertiary truncate">מי בא?</p>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB for New Message -->
+<button class="fixed bottom-24 left-6 w-14 h-14 bg-primary-container text-on-primary rounded-full shadow-lg flex items-center justify-center active:scale-90 transition-all duration-150 z-40">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">add_comment</span>
+</button>
+<!-- BottomNavBar Component -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface-container border-t border-white/5 shadow-[0_-4px_20px_rgba(255,107,0,0.15)] rounded-t-xl h-20 px-2 pb-2 flex flex-row-reverse justify-around items-center">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-white/5 transition-all active:scale-90 px-3 py-1" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-label-sm font-label-sm">דף הבית</span>
+</a>
+<!-- Courts -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-white/5 transition-all active:scale-90 px-3 py-1" href="#">
+<span class="material-symbols-outlined">sports_basketball</span>
+<span class="text-label-sm font-label-sm">מגרשים</span>
+</a>
+<!-- Create Game -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-white/5 transition-all active:scale-90 px-3 py-1" href="#">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="text-label-sm font-label-sm">צור משחק</span>
+</a>
+<!-- Profile (ACTIVE since messages are usually accessed via profile/personal drawer) -->
+<a class="flex flex-col items-center justify-center text-primary-container font-bold bg-primary-container/10 rounded-xl px-3 py-1 active:scale-90 transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="text-label-sm font-label-sm">פרופיל</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for conversation cards
+        document.querySelectorAll('.cursor-pointer').forEach(card => {
+            card.addEventListener('mousedown', () => {
+                card.style.transform = 'scale(0.98)';
+            });
+            card.addEventListener('mouseup', () => {
+                card.style.transform = 'scale(1)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body></html>
