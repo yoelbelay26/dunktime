@@ -41,7 +41,6 @@ export default function SignUpLogin() {
           password,
           options: {
             data: { full_name: fullName, city },
-            emailRedirectTo: window.location.origin,
           },
         })
         if (error) throw error
