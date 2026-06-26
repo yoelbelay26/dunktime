@@ -39,7 +39,10 @@ export default function SignUpLogin() {
         const { data, error } = await supabase.auth.signUp({
           email,
           password,
-          options: { data: { full_name: fullName, city } },
+          options: {
+            data: { full_name: fullName, city },
+            emailRedirectTo: window.location.origin,
+          },
         })
         if (error) throw error
         // If no session, Supabase requires email confirmation
