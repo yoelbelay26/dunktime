@@ -20,6 +20,7 @@ export default function SignUpLogin() {
   const [error, setError] = useState(null)
   const [submitting, setSubmitting] = useState(false)
   const [confirmationSent, setConfirmationSent] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
   const navigate = useNavigate()
 
   const isLogin = mode === 'login'
@@ -202,7 +203,7 @@ export default function SignUpLogin() {
                   lock
                 </span>
                 <input
-                  type="password"
+                  type={showPassword ? 'text' : 'password'}
                   placeholder="••••••••"
                   value={password}
                   onChange={e => setPassword(e.target.value)}
@@ -213,9 +214,12 @@ export default function SignUpLogin() {
                 />
                 <button
                   type="button"
+                  onClick={() => setShowPassword(v => !v)}
                   className="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary transition-colors"
                 >
-                  <span className="material-symbols-outlined" style={{ fontSize: 20 }}>visibility</span>
+                  <span className="material-symbols-outlined" style={{ fontSize: 20 }}>
+                    {showPassword ? 'visibility_off' : 'visibility'}
+                  </span>
                 </button>
               </div>
             </div>
