@@ -48,6 +48,32 @@
   background-color: rgba(255, 107, 0, 0.1);
 }
 
+.logout {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: 1px solid var(--color-outline-subtle);
+  border-radius: var(--radius-sm);
+  padding: var(--space-xs) var(--space-sm);
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+
+.logout:hover {
+  color: var(--color-error);
+  border-color: var(--color-error);
+}
+
+/* Hide on mobile — not enough space */
+@media (max-width: 767px) {
+  .logout {
+    display: none;
+  }
+}
+
 /* ── Mobile: hide nav links, BottomNav handles navigation ── */
 @media (max-width: 767px) {
   .links {

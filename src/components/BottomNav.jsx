@@ -1,10 +1,9 @@
 import { NavLink } from 'react-router-dom'
 
 const items = [
-  { to: '/',            end: true,  icon: 'home',             label: 'בית' },
-  { to: '/courts',      end: false, icon: 'sports_basketball', label: 'מגרשים' },
-  { to: '/create-game', end: false, icon: 'add_circle',        label: 'יצירה' },
-  { to: '/profile',     end: false, icon: 'person',            label: 'פרופיל' },
+  { to: '/',            end: true,  icon: 'home',      label: 'בית' },
+  { to: '/create-game', end: false, icon: 'add_circle', label: 'יצירה' },
+  { to: '/profile',     end: false, icon: 'person',     label: 'פרופיל' },
 ]
 
 export default function BottomNav() {

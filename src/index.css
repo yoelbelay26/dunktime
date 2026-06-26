@@ -62,7 +62,7 @@
 body {
   background-color: #131313;
   color: #e5e2e1;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Rubik', sans-serif;
   -webkit-tap-highlight-color: transparent;
   min-height: 100dvh;
   margin: 0;
@@ -116,10 +116,10 @@ body {
 .t-headline-lg    { font-family: 'Montserrat', sans-serif; font-size: 32px; line-height: 36px; font-weight: 800; letter-spacing: -0.01em; }
 .t-headline-lg-m  { font-family: 'Montserrat', sans-serif; font-size: 28px; line-height: 32px; font-weight: 800; }
 .t-headline-md    { font-family: 'Montserrat', sans-serif; font-size: 24px; line-height: 28px; font-weight: 700; }
-.t-body-lg        { font-family: 'Inter', sans-serif; font-size: 18px; line-height: 28px; font-weight: 400; }
-.t-body-md        { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 24px; font-weight: 400; }
-.t-label-lg       { font-family: 'Inter', sans-serif; font-size: 14px; line-height: 20px; font-weight: 700; letter-spacing: 0.05em; }
-.t-label-sm       { font-family: 'Inter', sans-serif; font-size: 12px; line-height: 16px; font-weight: 600; }
+.t-body-lg        { font-family: 'Rubik', sans-serif; font-size: 18px; line-height: 28px; font-weight: 400; }
+.t-body-md        { font-family: 'Rubik', sans-serif; font-size: 16px; line-height: 24px; font-weight: 400; }
+.t-label-lg       { font-family: 'Rubik', sans-serif; font-size: 14px; line-height: 20px; font-weight: 600; }
+.t-label-sm       { font-family: 'Rubik', sans-serif; font-size: 12px; line-height: 16px; font-weight: 500; }
 
 /* ── Input focus ring ── */
 input:focus,

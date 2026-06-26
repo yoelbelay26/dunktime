@@ -1,11 +1,80 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { supabase } from '../lib/supabase'
+
+const CITIES = [
+  'תל אביב', 'ירושלים', 'חיפה', 'ראשון לציון', 'פתח תקווה',
+  'אשדוד', 'נתניה', 'באר שבע', 'בני ברק', 'רמת גן',
+  'הרצליה', 'כפר סבא', 'מודיעין', 'רחובות', 'חולון',
+  'בת ים', 'אשקלון', 'רעננה', 'הוד השרון', 'לוד',
+  'רמלה', 'נצרת', 'עפולה', 'נהריה', 'עכו',
+  'טבריה', 'צפת', 'דימונה', 'אילת', 'רהט',
+]
 
 export default function SignUpLogin() {
   const [mode, setMode] = useState('login')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [fullName, setFullName] = useState('')
+  const [city, setCity] = useState('')
+  const [error, setError] = useState(null)
+  const [submitting, setSubmitting] = useState(false)
+  const [confirmationSent, setConfirmationSent] = useState(false)
   const navigate = useNavigate()
 
   const isLogin = mode === 'login'
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setError(null)
+    setSubmitting(true)
+
+    try {
+      if (isLogin) {
+        const { error } = await supabase.auth.signInWithPassword({ email, password })
+        if (error) throw error
+        navigate('/')
+      } else {
+        const { data, error } = await supabase.auth.signUp({
+          email,
+          password,
+          options: { data: { full_name: fullName, city } },
+        })
+        if (error) throw error
+        // If no session, Supabase requires email confirmation
+        if (data.user && !data.session) {
+          setConfirmationSent(true)
+        } else {
+          navigate('/')
+        }
+      }
+    } catch (err) {
+      setError(err.message)
+    } finally {
+      setSubmitting(false)
+    }
+  }
+
+  if (confirmationSent) {
+    return (
+      <div className="bg-background min-h-screen flex flex-col items-center justify-center p-4 text-on-surface" dir="rtl">
+        <div className="w-full max-w-md glass-card rounded-xl p-8 flex flex-col items-center gap-4 text-center orange-glow">
+          <span className="material-symbols-outlined text-primary" style={{ fontSize: 48 }}>mark_email_read</span>
+          <h2 className="t-headline-md text-on-surface">בדוק את תיבת הדואר שלך</h2>
+          <p className="t-body-md text-on-surface-variant">
+            שלחנו קישור אימות לכתובת <strong style={{ color: '#e5e2e1' }}>{email}</strong>.
+            לחץ על הקישור כדי להפעיל את החשבון.
+          </p>
+          <button
+            onClick={() => { setConfirmationSent(false); setMode('login') }}
+            className="t-label-lg text-primary uppercase underline mt-2"
+          >
+            חזרה להתחברות
+          </button>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="bg-background min-h-screen flex flex-col items-center justify-center p-4 text-on-surface">
@@ -27,20 +96,21 @@ export default function SignUpLogin() {
 
           {/* Segmented tabs */}
           <div className="relative flex bg-surface-container-low rounded-lg p-1 overflow-hidden">
-            {/* Sliding indicator */}
             <div
               className="absolute top-1 bottom-1 w-[calc(50%-4px)] bg-primary-container rounded-md transition-all duration-300"
               style={{ right: isLogin ? '4px' : 'calc(50%)' }}
             />
             <button
-              onClick={() => setMode('login')}
+              type="button"
+              onClick={() => { setMode('login'); setError(null) }}
               className="flex-1 py-3 text-center t-label-lg relative z-10 transition-colors duration-300"
               style={{ color: isLogin ? '#fff' : '#e2bfb0' }}
             >
               התחברות
             </button>
             <button
-              onClick={() => setMode('signup')}
+              type="button"
+              onClick={() => { setMode('signup'); setError(null) }}
               className="flex-1 py-3 text-center t-label-lg relative z-10 transition-colors duration-300"
               style={{ color: !isLogin ? '#fff' : '#e2bfb0' }}
             >
@@ -48,11 +118,16 @@ export default function SignUpLogin() {
             </button>
           </div>
 
+          {/* Error message */}
+          {error && (
+            <div className="bg-error-container text-on-error-container rounded-lg px-4 py-3 t-body-md text-right" dir="rtl">
+              {error}
+            </div>
+          )}
+
           {/* Form */}
-          <form
-            className="flex flex-col gap-5"
-            onSubmit={e => { e.preventDefault(); navigate('/') }}
-          >
+          <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
+
             {/* Full name – signup only */}
             {!isLogin && (
               <div className="flex flex-col gap-2">
@@ -64,9 +139,38 @@ export default function SignUpLogin() {
                   <input
                     type="text"
                     placeholder="הכנס את שמך המלא"
+                    value={fullName}
+                    onChange={e => setFullName(e.target.value)}
                     className="w-full bg-surface-container-highest border border-outline-variant rounded-lg py-3 pr-10 pl-4 t-body-md text-on-surface placeholder:text-on-surface-variant/40 transition-all"
                     style={{ color: '#e5e2e1' }}
                   />
+                </div>
+              </div>
+            )}
+
+            {/* City – signup only */}
+            {!isLogin && (
+              <div className="flex flex-col gap-2">
+                <label className="t-label-sm text-on-surface-variant px-1">עיר מגורים</label>
+                <div className="relative group">
+                  <span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">
+                    location_city
+                  </span>
+                  <select
+                    value={city}
+                    onChange={e => setCity(e.target.value)}
+                    required
+                    className="w-full bg-surface-container-highest border border-outline-variant rounded-lg py-3 pr-10 pl-4 t-body-md text-on-surface appearance-none transition-all"
+                    style={{ color: city ? '#e5e2e1' : '#9a8a80' }}
+                  >
+                    <option value="" disabled>בחר עיר...</option>
+                    {CITIES.map(c => (
+                      <option key={c} value={c}>{c}</option>
+                    ))}
+                  </select>
+                  <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">
+                    expand_more
+                  </span>
                 </div>
               </div>
             )}
@@ -81,6 +185,9 @@ export default function SignUpLogin() {
                 <input
                   type="email"
                   placeholder="email@example.com"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                  required
                   className="w-full bg-surface-container-highest border border-outline-variant rounded-lg py-3 pr-10 pl-4 t-body-md text-on-surface placeholder:text-on-surface-variant/40 transition-all"
                   style={{ color: '#e5e2e1' }}
                 />
@@ -97,6 +204,10 @@ export default function SignUpLogin() {
                 <input
                   type="password"
                   placeholder="••••••••"
+                  value={password}
+                  onChange={e => setPassword(e.target.value)}
+                  required
+                  minLength={6}
                   className="w-full bg-surface-container-highest border border-outline-variant rounded-lg py-3 pr-10 pl-10 t-body-md text-on-surface placeholder:text-on-surface-variant/40 transition-all"
                   style={{ color: '#e5e2e1' }}
                 />
@@ -109,58 +220,17 @@ export default function SignUpLogin() {
               </div>
             </div>
 
-            {/* Skill level – signup only */}
-            {!isLogin && (
-              <div className="flex flex-col gap-2">
-                <label className="t-label-sm text-on-surface-variant px-1">רמת משחק</label>
-                <div className="relative group">
-                  <span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">
-                    sports_basketball
-                  </span>
-                  <select
-                    className="w-full bg-surface-container-highest border border-outline-variant rounded-lg py-3 pr-10 pl-4 t-body-md text-on-surface appearance-none transition-all"
-                    style={{ color: '#e5e2e1' }}
-                    defaultValue=""
-                  >
-                    <option value="" disabled>בחר רמת מיומנות</option>
-                    <option value="beginner">מתחיל (Casual)</option>
-                    <option value="intermediate">בינוני (Semi-Pro)</option>
-                    <option value="advanced">מתקדם (Baller)</option>
-                    <option value="pro">מקצוען (Elite)</option>
-                  </select>
-                  <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">
-                    expand_more
-                  </span>
-                </div>
-              </div>
-            )}
 
             {/* Submit */}
             <button
               type="submit"
-              className="w-full bg-primary-container text-on-primary t-label-lg py-4 rounded-lg uppercase tracking-widest active:scale-95 transition-transform hover:brightness-110 mt-2"
+              disabled={submitting}
+              className="w-full bg-primary-container text-on-primary t-label-lg py-4 rounded-lg uppercase tracking-widest active:scale-95 transition-all hover:brightness-110 mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              המשך
+              {submitting ? '...' : 'המשך'}
             </button>
           </form>
 
-          {/* Divider */}
-          <div className="flex items-center gap-4 py-2">
-            <div className="h-px flex-1 bg-outline-variant" />
-            <span className="t-label-sm text-on-surface-variant">או</span>
-            <div className="h-px flex-1 bg-outline-variant" />
-          </div>
-
-          {/* Google */}
-          <button className="w-full border border-outline-variant bg-transparent text-on-surface t-label-lg py-3 rounded-lg flex items-center justify-center gap-3 transition-colors active:scale-[0.98] hover:bg-surface-container-highest">
-            <svg className="w-5 h-5" viewBox="0 0 24 24">
-              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.27.81-.57z" fill="#FBBC05"/>
-              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-            </svg>
-            המשך עם Google
-          </button>
         </div>
 
         <p className="mt-8 text-on-surface-variant t-label-sm text-center opacity-60">

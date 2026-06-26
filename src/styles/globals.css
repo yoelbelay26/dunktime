@@ -13,8 +13,8 @@
   --color-error: #ffb4ab;
 
   /* ── Typography ── */
-  --font-heading: 'Montserrat', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Rubik', 'Montserrat', sans-serif;
+  --font-body:    'Rubik', sans-serif;
 
   --text-xs:   12px;
   --text-sm:   14px;

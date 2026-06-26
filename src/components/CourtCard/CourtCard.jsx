@@ -1,65 +1,53 @@
-export default function CourtCard({ name, location, activePlayers, isLive, img, onClick }) {
+const GRADIENTS = [
+  'linear-gradient(135deg, #1a1200 0%, #3d2800 100%)',
+  'linear-gradient(135deg, #0d1a0d 0%, #1a3020 100%)',
+  'linear-gradient(135deg, #1a0d1a 0%, #2d1430 100%)',
+  'linear-gradient(135deg, #001a1a 0%, #003030 100%)',
+  'linear-gradient(135deg, #1a1a00 0%, #2e2e10 100%)',
+]
+
+export default function CourtCard({ name, location, activePlayers, isLive, img, onClick, index = 0 }) {
+  const gradient = GRADIENTS[index % GRADIENTS.length]
+
   return (
     <button
       onClick={onClick}
       dir="rtl"
       style={{
-        display: 'flex',
-        flexDirection: 'column',
-        width: 256,
-        flexShrink: 0,
-        borderRadius: 'var(--radius-md)',
-        overflow: 'hidden',
-        background: 'rgba(30,30,30,0.8)',
-        border: '1px solid rgba(255,255,255,0.05)',
-        textAlign: 'right',
-        cursor: 'pointer',
+        display: 'flex', flexDirection: 'column',
+        width: 200, flexShrink: 0,
+        borderRadius: 16, overflow: 'hidden',
+        border: '1px solid rgba(255,255,255,0.06)',
+        textAlign: 'right', cursor: 'pointer',
+        background: '#1a1a1a',
       }}
     >
-      <div style={{ position: 'relative', height: 128 }}>
-        {img && (
-          <img
-            src={img}
-            alt={name}
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-          />
-        )}
+      {/* Visual area */}
+      <div style={{ position: 'relative', height: 110, background: img ? undefined : gradient, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        {img
+          ? <img src={img} alt={name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          : <>
+              <span className="material-symbols-outlined" style={{ fontSize: 44, color: 'rgba(255,182,147,0.2)', position: 'absolute' }}>sports_basketball</span>
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #1a1a1a 0%, transparent 60%)' }} />
+            </>
+        }
         {isLive && (
-          <span
-            style={{
-              position: 'absolute',
-              top: 8,
-              left: 8,
-              background: 'var(--color-accent)',
-              color: '#561f00',
-              fontSize: 'var(--text-xs)',
-              fontWeight: 700,
-              padding: '2px 8px',
-              borderRadius: 'var(--radius-sm)',
-            }}
-          >
-            LIVE • {activePlayers} פעילים
+          <span style={{ position: 'absolute', top: 8, left: 8, background: '#ff6b00', color: '#561f00', fontSize: 10, fontWeight: 700, padding: '2px 8px', borderRadius: 20 }}>
+            LIVE · {activePlayers}
           </span>
         )}
       </div>
-      <div style={{ padding: 'var(--space-sm)' }}>
-        <p style={{
-          fontFamily: 'var(--font-heading)',
-          fontSize: 'var(--text-lg)',
-          fontWeight: 700,
-          color: 'var(--color-text-primary)',
-          margin: 0,
-        }}>
+
+      {/* Info */}
+      <div style={{ padding: '10px 12px' }}>
+        <p style={{ fontFamily: 'Montserrat', fontSize: 14, fontWeight: 700, color: '#e5e2e1', margin: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
           {name}
         </p>
-        <p style={{
-          fontFamily: 'var(--font-body)',
-          fontSize: 'var(--text-xs)',
-          color: 'var(--color-text-secondary)',
-          margin: '4px 0 0',
-        }}>
-          {location}
-        </p>
+        {location && (
+          <p style={{ fontSize: 11, color: '#9a8a80', margin: '3px 0 0' }}>
+            {location}
+          </p>
+        )}
       </div>
     </button>
   )
